@@ -64,7 +64,7 @@ shelterSupplyList()
 //Precio original: 50 - Descuento aplicado: 5 - Precio final: 45
   const discountCalculator = (originalPrices) => {
     for (const price of originalPrices) {
-      let discount = price > 100 ? price * 0.2 : price * 0.1;
+      const discount = price > 100 ? price * 0.2 : price * 0.1;
       const finalPrice = price - discount;
       console.log(`Precio original: ${price} - Descuento aplicado: ${discount} - Precio final: ${finalPrice}`);
     }
@@ -77,15 +77,63 @@ shelterSupplyList()
 //Múltiplos de 3 encontrados: 7
 const multiplesOf3Checker = () =>{
   numbersGenerated = [];
-  for(i=0; i < 10; i++){
-    const number= Math.floor(Math.random()*100)+1);
+  multiplesOf3 = 0;
+
+  for (let i = 0; i < 10; i++) {
+    const number = Math.floor(Math.random() * 100) + 1;
     numbersGenerated.push(number);
-    
-  console.log(`Números generados: ${numbersGenerated}`)}
-     if(numbersGenerated[i] %3 === 0){
-      console.log(`Múltiplos de 3 encontrados:${numbersGenerated.length}`)
-    } else {
-      console.log('No se ha encontrado multiplo de 3')
-    }
+
+    if(number % 3 === 0){multiplesOf3 = multiplesOf3 + 1}
   }
+  console.log(`Números generados: ${numbersGenerated}`);//colocar de ultimo el log para que no me haga una cadena de numeros alealtorios
+  console.log(`Múltiplos de 3 encontrados: ${multiplesOf3}`);
+}
 multiplesOf3Checker()
+
+//8️⃣ Macarena tiene un array con tres nombres y debe crear un array nuevo con las iniciales de cada nombre en mayúsculas usando un bucle.
+//Ejemplo entrada: ['Pedro', 'Ana', 'Luis']
+//Ejemplo salida: ['P', 'A', 'L']
+const namesInitals = (names) => {
+  const initials = []
+  for (i = 0; i < names.length; i++)
+    initials.push(names[i][0].toUpperCase())
+
+console.log(initials)
+}
+namesInitals(['Pedro', 'Ana', 'Luis'])
+
+//9️⃣ Abby está revisando mensajes cifrados. Tiene un array con palabras (cantidad y palabras a tu elección) que deben invertirse y mostrarse en minúsculas. Usa un bucle para procesarlas todas. Investiga sobre las funciones split(), reverse() y join()
+//Ejemplo entrada: ['FUEGO', 'REFUGIO', 'SUMINISTROS']
+//Ejemplo salida: ['oguef', 'oiguref', 'sotsinimus']
+const cheekingCodedMessages = () =>{
+const codeMessages = ['FUEGO', 'REFUGIO', 'SUMINISTROS'];
+for(const message of codeMessages){
+  const reverseMessage = message.toLowerCase().split('').reverse().join('');
+  console.log(reverseMessage)}
+}
+cheekingCodedMessages()
+
+//🔟 Camila quiere generar un código de acceso combinando letras aleatorias y números. Usa un bucle para crear un string aleatorio de 6 caracteres sacados de 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.
+//Ejemplo salida: 'A3P9K8'
+const generateALoginCode = () =>{
+const alphabetandNumbers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+let randomCode = [];
+for(let i = 0; i < 6; i++){
+  const randomCombination = Math.floor(Math.random() * alphabetandNumbers.length);
+  randomCode.push(alphabetandNumbers[randomCombination]);
+}
+console.log(randomCode.join(''));
+}
+generateALoginCode()
+
+//1️⃣1️⃣ Macarena quiere crear un sistema que genere combinaciones de nombres y apellidos. Tiene dos arrays: ['Juan', 'Ana', 'Luis'] y ['Pérez', 'Martínez', 'García']. Debe generar todos los nombres posibles combinando uno de cada array.
+//Ejemplo salida:
+//Juan Pérez
+//Juan Martínez
+//Juan García
+//Ana Pérez
+//Ana Martínez
+//Ana García
+//Luis Pérez
+//Luis Martínez
+//Luis García
