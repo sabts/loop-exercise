@@ -294,10 +294,10 @@ const passwordgenerator = () => {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
   const passwords = [];
 
-  for (let i = 0; i <= 3; i++) {
+  for (let i = 0; i <= 2; i++) { //cuantas veces esta dando la vuelta el codigo
     let uniquePassword = "";
 
-    for (let j = 0; j <= 3; j++){
+    for (let j = 0; j <= 7; j++){ // aca el 7 esta sirviendo como el largo de la contraseña
       const randomOrder = code.charAt(Math.floor(Math.random() * code.length));//el code charAt es para que lea mejor el el random y no solo saque los números
       uniquePassword +=randomOrder;
     }
@@ -310,12 +310,147 @@ passwordgenerator();
 //2 - Macarena quiere hacer un filtro de palabras. Tiene un array con palabras mezcladas y quiere devolver un nuevo array solo con las que empiezan con vocal.
 //Ejemplo entrada: ['Agua', 'Pan', 'Elefante', 'Mesa', 'Oruga']
 //Ejemplo salida: ['Agua', 'Elefante', 'Oruga']
-const wordsFilter = () => {
-  const words = ["Agua", "Pan", "Elefante", "Mesa", "Oruga"];
+const wordsFilter = (words) => {
   const vowels = "AEIOU"
-  for(word of words){
-    if(vowels.includes(words)){
-      console.log(`${words}`)}
-   }
+  const beginWithVowels = [];
+
+  for (const word of words) {
+    if (vowels.includes(word.charAt(0).toUpperCase())) {
+      beginWithVowels.push(word);
+    }
   }
-  wordsFilter()
+  console.log(beginWithVowels);
+  }
+  wordsFilter(["Agua", "Pan", "Elefante", "Mesa", "Oruga"])
+
+ //3 - Bego está calculando la media aritmética de un array de números. Debe mostrar el promedio y el total de elementos en el array.
+//Ejemplo entrada: [5, 10, 15, 20]
+//Ejemplo salida: Promedio: 12.5 - Total de elementos: 4
+//Sumar todos los números en el conjunto de datos y luego al dividir entre el número de valores en el conjunto. Ejemplo:  5, 10, 15, 20 / 4
+const arithmetiCalculator = (numbers) =>{
+let average = 0;
+const numbersOfValues = numbers.length;
+
+for(const number of numbers){
+ average += number;
+}
+  const total = average /numbersOfValues;
+
+console.log(`entrada: ${numbers} Promedio: ${total} Total de elementos ${numbersOfValues}`)
+}
+arithmetiCalculator([5, 10, 15, 20])
+
+//4 - Camila quiere invertir un array sin usar el método .reverse(). El array debe mostrarse al revés y ser un nuevo array diferente al original.
+//Ejemplo entrada: [1, 2, 3, 4]
+//Ejemplo salida: [4, 3, 2, 1]
+const invertNumbersWithoutReverse = () =>{
+  console.log('Ascendente:');
+  for (let i = 0; i <= 4; i++) {
+    console.log([i])};
+
+  console.log('Invertido')
+  for (let i = 4; i >= 0; i--) {
+      console.log([i]);}
+  }
+  invertNumbersWithoutReverse([1, 2, 3, 4]) 
+
+//5 - Bego está organizando números. Tiene un array de números positivos y negativos y quiere separarlos en dos arrays: uno con positivos y otro con negativos.
+//Ejemplo entrada: [3, -2, -7, 4, 0, -1, 5]
+//Ejemplo salida: Positivos: [3, 4, 0, 5] - Negativos: [-2, -7, -1]
+const  organizingPositiveAndNegativeNumbers = (numbers) =>{
+  const positiveNumbers =[];
+  const negativeNumbers =[];
+
+  for(number of numbers){
+    if(number >= 0) 
+      {
+      positiveNumbers.push(number)
+    } else 
+      {
+        negativeNumbers.push(number)
+      }
+  }
+  console.log(`Números positivos ${positiveNumbers} 
+   Números negativos ${negativeNumbers}`)
+}
+organizingPositiveAndNegativeNumbers([3, -2, -7, 4, 0, -1, 5])
+
+//6 - Macarena necesita una función que genere un array con números del 1 al 100 que sean divisibles por 5 pero no por 3.
+//Ejemplo salida: [5, 10, 20, 25, 35, 40, 50, 55, 65, 70, 80, 85, 95, 100]
+const numberOrganizerDivisibleBy5ButNotBy3 = () =>{
+  numbersDivisible5 = [];
+
+  for (let i = 0; i < 10; i++) {
+   const numbersGenerator = Math.floor(Math.random()*100)+1;
+
+  if(numbersGenerator % 5 ===0 && numbersGenerator % 3 !== 0)
+  {
+    numbersDivisible5.push(numbersGenerator)
+  }
+}
+  console.log(numbersDivisible5)
+}
+numberOrganizerDivisibleBy5ButNotBy3()
+
+//7 - Abby quiere transformar un array de strings en un único string separado por comas, pero ignorando las palabras que empiezan con vocal.
+//Ejemplo entrada: ['Agua', 'Pan', 'Elefante', 'Mesa', 'Oruga']
+//Ejemplo salida: 'Pan, Mesa'
+const arraysDividedByCommas = (words) =>{
+  const vowels = 'AEIOU';
+  const startWithoutVowels = [];
+
+  for (const word of words){
+    if(!vowels.includes(word.charAt(0).toUpperCase())){
+      startWithoutVowels.push(word)
+    }
+  }
+  console.log(startWithoutVowels.join(', '))
+}
+arraysDividedByCommas(['Agua', 'Pan', 'Elefante', 'Mesa', 'Oruga'])
+
+//8 - Bego tiene un array con números y debe devolver un nuevo array con solo los números impares multiplicados por 2.
+//Ejemplo entrada: [3, 6, 9, 12, 15]
+//Ejemplo salida: [6, 18, 30]
+const OddMumbersMultipliedBy2 = (numbers) =>{
+  const generateNumbers =[];
+  const oddNumbersmultiplied = [];
+
+  for (let i = 0; i < 5; i++) {
+    const randomNumbers = Math.floor(Math.random() * 100) +1;
+    generateNumbers.push(randomNumbers)
+  }
+  
+  for(const number of generateNumbers){
+  if(number % 2 !== 0){oddNumbersmultiplied.push(number * 2)}
+}
+console.log('Numeros generados:' + generateNumbers +'||' + 'Números impares, multiplicados por 2: '+ oddNumbersmultiplied)
+}
+OddMumbersMultipliedBy2()
+
+//9 - Sabrina quiere crear un sistema para clasificar números. Recibe un array y debe mostrar cuántos son pares, cuántos son impares y cuántos son cero.
+//Ejemplo entrada: [0, 3, 6, 9, 12, 0]
+//Ejemplo salida: Pares: 2 - Impares: 3 - Ceros: 2
+const clasifyEvenAndOddNumber = (numbers) =>{
+  const evenNumbers = [];
+  const oddNumbers = [];
+  const zeros = [];
+
+  for(number of numbers){
+    if(number === 0){
+      zeros.push(number)
+    }
+    else if(number % 2 !== 0){
+      oddNumbers.push(number)
+    }
+    else{evenNumbers.push(number)
+    }
+  }
+console.log('pares: ' + evenNumbers.length + '  Impares: ' + oddNumbers.length + '  ceros: ' + zeros.length)
+ }
+clasifyEvenAndOddNumber([0, 3, 6, 9, 12, 0])
+
+//10 - Camila quiere un sistema que reciba un array de nombres y devuelva un array nuevo con las posiciones donde aparecen nombres con más de 5 letras.
+//Ejemplo entrada: ['Pedro', 'Ana', 'Esteban', 'María', 'Begoña']
+//Ejemplo salida: [2, 4]
+
+
