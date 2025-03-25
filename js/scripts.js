@@ -46,21 +46,27 @@ threeDigitSecurityCode();
 //Czst no contiene vocales.
 const shelterSupplyList = () => {
   const supplyList = ["Agua", "Munición", "Botiquín", "Czst"];
-  const vowel = "aeiou";
+  const vowels = "aeiou";
+  
   for (const supply of supplyList) {
-    let hasvowel = false;
-    for (const letter of supplyList)
-      if (vowel.includes(supplyList)) {
-        hasvowel = true;
-        {
-          console.log(`${supplyList} contiene vocales.`);
-        }
-        {
-          console.log(`${supplyList} no contiene vocales.`);
-        }
+    let hasVowel = false;
+
+    // Convertimos la palabra a minúsculas
+    for (const letter of supply.toLowerCase()) {
+      if (vowels.includes(letter)) {
+        hasVowel = true;
+        break;  // Si encontramos una vocal sale del bucle
       }
+    }
+
+    if (hasVowel) {
+      console.log(`${supply} contiene vocales.`);
+    } else {
+      console.log(`${supply} no contiene vocales.`);
+    }
   }
 };
+
 shelterSupplyList();
 
 //5️⃣ Bego está calculando precios con descuento. Tiene un array con precios, (por ejemplo [150, 300, 50]). Si el precio es mayor a 100, aplica un 20% de descuento, si no, un 10%. Usa un bucle para mostrar cada precio original, descuento aplicado y precio final.
@@ -130,13 +136,16 @@ cheekingCodedMessages();
 const generateALoginCode = () => {
   const alphabetandNumbers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   let randomCode = "";
+
   for (let i = 0; i < 6; i++) {
     const randomCombination = Math.floor(
       Math.random() * alphabetandNumbers.length
     );
-    const ramdomCharacter = randomCombination;
-  }
-};
+    const randomCharacter = alphabetandNumbers.charAt(randomCombination)
+    randomCode = randomCode + randomCharacter
+}
+console.log(randomCode)
+}
 generateALoginCode();
 
 //1️⃣1️⃣ Macarena quiere crear un sistema que genere combinaciones de nombres y apellidos. Tiene dos arrays: ['Juan', 'Ana', 'Luis'] y ['Pérez', 'Martínez', 'García']. Debe generar todos los nombres posibles combinando uno de cada array.
@@ -214,24 +223,29 @@ const threeWordCombination = () => {
     }
   }
 };
-threeWordCombination;
+threeWordCombination();
 
 //1️⃣5️⃣ Sabrina quiere generar un nombre de usuario aleatorio combinando una consonante, una vocal y un número aleatorio entre 1 y 99. Debe hacerlo 5 veces y mostrar los resultados.
 //Ejemplo salida: ['MA87', 'RO56', 'LE23', 'FI99', 'PU12']
-const randomUserNames = () => {
+const generateRandomCharacters = () => {
   const vowels = "AEIOU";
   const consonats = "BCDFGHJKLMNÑPQRSTVXZWY";
-  let numbers = [];
 
+  const randomConsonats = Math.floor(Math.random() * consonats.length);
+    const randomVowels = Math.floor(Math.random() * vowels.length);
+    const randomNumbers = Math.floor(Math.random() * 99);
+    return randomConsonats + randomVowels + randomNumbers
+} //Se crea aparte una función con los 3 elementos random y luego se añade al bucle para que por cada vuelta lo guarde en el "Array Vacio" y se vaya guardando con el push
+
+  const randomUserNamesGenerator = () => { 
+    const usernamesList = [];
   for (let i = 0; i < 5; i++) {
-    const randomConsonat = Math.floor(Math.random() * consonats.length);
-    const randomVowel = Math.floor(Math.random() * vowels.length);
-
-    const randomnumbers = Math.floor(Math.random() * 99) + 1;
-    numbers.push(randomnumbers);
+    const users = generateRandomCharacters;
+    usernamesList.push(users)
   }
+  console.log(usernamesList)
 };
-randomUserNames();
+randomUserNamesGenerator();
 
 //1️⃣6️⃣ Abby tiene problemas con las tablas de multiplicar, quiere hacer 2 funciones que reciban un número y le impriman la tabla de multiplicar de ese número desde hasta el 10 una en orden descendente y otra en orden ascendente.
 //Ejemplo entrada: 4
@@ -278,16 +292,19 @@ multiplicationTable(4);
 const passwordgenerator = () => {
   const code =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+  const passwords = [];
 
-  let password = "";
-  for (let i = 0; i <= 5; i++) {
-    const randomOrder = code.charAt(Math.floor(Math.random() * code.length)); //el code charAt es para que lea mejor el el random y no solo saque los números
-    password = password + randomOrder;
+  for (let i = 0; i <= 3; i++) {
+    let uniquePassword = "";
+
+    for (let j = 0; j <= 3; j++){
+      const randomOrder = code.charAt(Math.floor(Math.random() * code.length));//el code charAt es para que lea mejor el el random y no solo saque los números
+      uniquePassword +=randomOrder;
+    }
+    passwords.push(uniquePassword)
   }
-  for (const word of password) {
-    console.log(password);
+    console.log(passwords);
   }
-};
 passwordgenerator();
 
 //2 - Macarena quiere hacer un filtro de palabras. Tiene un array con palabras mezcladas y quiere devolver un nuevo array solo con las que empiezan con vocal.
@@ -297,6 +314,8 @@ const wordsFilter = () => {
   const words = ["Agua", "Pan", "Elefante", "Mesa", "Oruga"];
   const vowels = "AEIOU"
   for(word of words){
-    if()
+    if(vowels.includes(words)){
+      console.log(`${words}`)}
+   }
   }
-};
+  wordsFilter()
