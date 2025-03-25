@@ -285,6 +285,8 @@ const multiplicationTable = number => {
 };
 multiplicationTable(4);
 
+
+
 //Ejercicios extra//
 
 //1 - Bego necesita un generador de contraseñas. Debe crear 3 contraseñas únicas usando letras mayúsculas, minúsculas, números y símbolos. Cada contraseña debe tener 8 caracteres, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
@@ -326,13 +328,13 @@ const wordsFilter = (words) => {
  //3 - Bego está calculando la media aritmética de un array de números. Debe mostrar el promedio y el total de elementos en el array.
 //Ejemplo entrada: [5, 10, 15, 20]
 //Ejemplo salida: Promedio: 12.5 - Total de elementos: 4
-//Sumar todos los números en el conjunto de datos y luego al dividir entre el número de valores en el conjunto. Ejemplo:  5, 10, 15, 20 / 4
+//Sumar todos los números en el conjunto de datos y luego al dividir entre el número de valores en el conjunto. Ejemplo:  5 + 10 + 15 + 20 / 4 = 12,5
 const arithmetiCalculator = (numbers) =>{
 let average = 0;
 const numbersOfValues = numbers.length;
 
 for(const number of numbers){
- average += number;
+ average = average + number;
 }
   const total = average /numbersOfValues;
 
@@ -455,4 +457,37 @@ clasifyEvenAndOddNumber([0, 3, 6, 9, 12, 0])
 const nameLength5Position = () => {
 
 }
-nameLength5Position()
+nameLength5Position(['Pedro', 'Ana', 'Esteban', 'María', 'Begoña'])
+
+//11 - Macarena quiere generar un código de seguridad que se crea uniendo la primera letra de cada palabra en un array de frases.
+//Ejemplo entrada: ['Fuego en el bosque', 'Refugio seguro', 'Suministros esenciales']
+//Ejemplo salida: 'FRS'
+
+
+//12 - Bego quiere hacer un sistema que reciba dos arrays de números y devuelva un array con los números que aparecen en ambos arrays.
+//Ejemplo entrada: [1, 2, 3, 4] y [3, 4, 5, 6]
+//Ejemplo salida: [3, 4]
+
+
+//13 - Camila necesita generar un array que contenga todos los números entre dos números dados, inclusive.
+//Ejemplo entrada: 5 y 10
+//Ejemplo salida: [5, 6, 7, 8, 9, 10]
+
+
+//14 - Macarena quiere un programa que devuelva el número total de vocales en cada palabra de un array.
+//Ejemplo entrada: ['Hola', 'Mundo', 'JavaScript']
+//Ejemplo salida: [2, 2, 3]
+
+//15 - Bego quiere que cada string en un array se muestre al revés.
+//Ejemplo entrada: ['Hola', 'Mundo']
+//Ejemplo salida: ['aloH', 'odnuM']
+const inversestring = (words) =>{
+  const reversetext = [];
+
+  for(word of words){
+  reversewords = word.split("").reverse().join("");
+    reversetext.push(reversewords)
+  }
+  console.log(reversetext)
+}
+inversestring(['Hola', 'Mundo'])
