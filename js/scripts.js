@@ -137,3 +137,108 @@ generateALoginCode()
 //Luis Pérez
 //Luis Martínez
 //Luis García
+const nameCombinationSystem = () => {
+const names= ['Juan', 'Ana', 'Luis'];
+const lastnames = ['Pérez', 'Martínez', 'García'];
+for(let i = 0; i< names.length; i++){ 
+  for(let j = 0; j < lastnames.length; j++){
+    console.log(`${names[i]} ${lastnames[j]}`)
+  }
+}
+}
+nameCombinationSystem()
+
+//1️⃣2️⃣ Abby quiere comprobar si al menos uno de los números generados aleatoriamente entre 1 y 100 es divisible por 5. Genera 5 números y muestra si se cumple la condición.
+//Ejemplo salida:
+//Números generados: [23, 45, 67, 12, 90]
+//Números divisibles por 5 encontrados: [45, 90]
+const randoNumberMultipleof5 = () =>{
+const randomNumberGenerated =  [];
+let multiplesOf5 = 0;
+
+for(let i=0; i < 5; i++){
+  const numbers = Math.floor(Math.random()*100)+1;
+  randomNumberGenerated.push(numbers)
+
+  if(numbers % 5 === 0){multiplesOf5 = multiplesOf5+1}
+}
+console.log(`Números generados:${randomNumberGenerated}`)
+console.log(`Números divisibles por 5 encontrados:${multiplesOf5}`)
+}
+randoNumberMultipleof5()
+
+//1️⃣3️⃣ Camila tiene un array con nombres y quiere mostrar sólo aquellos que tienen más de 4 letras.
+//Ejemplo entrada: ['Pedro', 'Ana', 'Luis', 'Elena', 'Sofía']
+//Ejemplo salida: ['Pedro', 'Elena', 'Sofía']
+const nameLength4letter = () =>{
+  const names=['Pedro', 'Ana', 'Luis', 'Elena', 'Sofía']
+  for(let name of names)
+    {
+    if(name.length > 4){
+      console.log(name)}
+  }
+}
+nameLength4letter()
+
+//1️⃣4️⃣ Bego tiene un array con tres palabras y quiere mostrar todas las combinaciones posibles de esas palabras usando dos palabras a la vez y cuyas combinaciones no repitan la palabra.
+//Ejemplo entrada: ['Sol', 'Luna', 'Estrella']
+//Ejemplo salida:
+//Sol Luna
+//Sol Estrella
+//Luna Sol
+//Luna Estrella
+//Estrella Sol
+//Estrella Luna
+const threeWordCombination = () =>{
+  const words = ['Sol', 'Luna', 'Estrella']
+  for (let i=0; i < words.length; i++){
+   for(let j=0; j < words.length; i--)
+  console.log(`${words[i]} ${words[j]}`)
+}
+}
+threeWordCombination
+
+//1️⃣5️⃣ Sabrina quiere generar un nombre de usuario aleatorio combinando una consonante, una vocal y un número aleatorio entre 1 y 99. Debe hacerlo 5 veces y mostrar los resultados.
+//Ejemplo salida: ['MA87', 'RO56', 'LE23', 'FI99', 'PU12']
+const randomUserNames = () =>{
+  const vowels = 'AEIOU';
+  const consonats = 'BCDFGHJKLMNÑPQRSTVXZWY';
+  let numbers = [];
+
+  for(let i =0; i < 5; i++){
+    const randomConsonat = Math.floor(Math.random()*consonats.length);
+    const randomVowel = Math.floor(Math.random()*vowels.length);
+
+    const randomnumbers = Math.floor(Math.random()*99)+1;
+    numbers.push(randomnumbers)
+  }
+console.log(`${randomConsonat}${randomVowel}${numbers}`)
+}
+randomUserNames()
+
+//1️⃣6️⃣ Abby tiene problemas con las tablas de multiplicar, quiere hacer 2 funciones que reciban un número y le impriman la tabla de multiplicar de ese número desde hasta el 10 una en orden descendente y otra en orden ascendente.
+//Ejemplo entrada: 4
+//Ejemplo salida función descendente:
+//4 x 10 = 40
+//4 x 9 = 36
+//4 x 8 = 32
+//4 x 7 = 28
+//4 x 6 = 24
+//4 x 5 = 20
+//4 x 4 = 16
+//4 x 3 = 12
+//4 x 2 = 8
+//4 x 1 = 4
+//4 x 0 = 0
+//Ejemplo salida función ascendente:
+//4 x 0 = 0
+//4 x 1 = 4
+//4 x 2 = 8
+//4 x 3 = 12
+//4 x 4 = 16
+//4 x 5 = 20
+//4 x 6 = 24
+//4 x 7 = 28
+//4 x 8 = 32
+//4 x 9 = 36
+//4 x 10 = 40
