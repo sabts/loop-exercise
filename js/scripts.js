@@ -129,14 +129,13 @@ cheekingCodedMessages();
 //Ejemplo salida: 'A3P9K8'
 const generateALoginCode = () => {
   const alphabetandNumbers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  let randomCode = [];
+  let randomCode = "";
   for (let i = 0; i < 6; i++) {
     const randomCombination = Math.floor(
       Math.random() * alphabetandNumbers.length
     );
-    randomCode.push(alphabetandNumbers[randomCombination]);
+    const ramdomCharacter = randomCombination;
   }
-  console.log(randomCode.join(""));
 };
 generateALoginCode();
 
@@ -206,10 +205,13 @@ nameLength4letter();
 //Estrella Sol
 //Estrella Luna
 const threeWordCombination = () => {
-  const words = ["Sol", "Luna", "Estrella"];
-  for (let i = 0; i < words.length; i++) {
-    for (let j = 0; j < words.length; i--)
-      console.log(`${words[i]} ${words[j]}`);
+  const wordList = ["Sol", "Luna", "Estrella"];
+  for (const word of wordList) {
+    for (const word2 of wordList) {
+      if (word2 !== word) {
+        console.log(word + " " + word2);
+      }
+    }
   }
 };
 threeWordCombination;
@@ -228,7 +230,6 @@ const randomUserNames = () => {
     const randomnumbers = Math.floor(Math.random() * 99) + 1;
     numbers.push(randomnumbers);
   }
-  console.log(`${randomConsonat}${randomVowel}${numbers}`);
 };
 randomUserNames();
 
@@ -258,3 +259,44 @@ randomUserNames();
 //4 x 8 = 32
 //4 x 9 = 36
 //4 x 10 = 40
+const multiplicationTable = number => {
+  console.log("Función ascendente");
+  for (let i = 0; i <= 10; i++) {
+    console.log(`${number} x ${i} = ${number}`);
+  }
+  console.log("Función descendente");
+  for (let i = 10; i >= 0; i--) {
+    console.log(`${number} x ${i} = ${number}`);
+  }
+};
+multiplicationTable(4);
+
+//Ejercicios extra//
+
+//1 - Bego necesita un generador de contraseñas. Debe crear 3 contraseñas únicas usando letras mayúsculas, minúsculas, números y símbolos. Cada contraseña debe tener 8 caracteres, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
+//Ejemplo salida: ['aB9$Rty1', 'Cz7%Qw2$', 'Xy8&Re9P']
+const passwordgenerator = () => {
+  const code =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+  let password = "";
+  for (let i = 0; i <= 5; i++) {
+    const randomOrder = code.charAt(Math.floor(Math.random() * code.length)); //el code charAt es para que lea mejor el el random y no solo saque los números
+    password = password + randomOrder;
+  }
+  for (const word of password) {
+    console.log(password);
+  }
+};
+passwordgenerator();
+
+//2 - Macarena quiere hacer un filtro de palabras. Tiene un array con palabras mezcladas y quiere devolver un nuevo array solo con las que empiezan con vocal.
+//Ejemplo entrada: ['Agua', 'Pan', 'Elefante', 'Mesa', 'Oruga']
+//Ejemplo salida: ['Agua', 'Elefante', 'Oruga']
+const wordsFilter = () => {
+  const words = ["Agua", "Pan", "Elefante", "Mesa", "Oruga"];
+  const vowels = "AEIOU"
+  for(word of words){
+    if()
+  }
+};
