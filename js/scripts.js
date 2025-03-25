@@ -452,5 +452,7 @@ clasifyEvenAndOddNumber([0, 3, 6, 9, 12, 0])
 //10 - Camila quiere un sistema que reciba un array de nombres y devuelva un array nuevo con las posiciones donde aparecen nombres con más de 5 letras.
 //Ejemplo entrada: ['Pedro', 'Ana', 'Esteban', 'María', 'Begoña']
 //Ejemplo salida: [2, 4]
+const nameLength5Position = () => {
 
-
+}
+nameLength5Position()
