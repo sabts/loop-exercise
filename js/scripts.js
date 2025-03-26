@@ -47,7 +47,7 @@ threeDigitSecurityCode();
 const shelterSupplyList = () => {
   const supplyList = ["Agua", "Munición", "Botiquín", "Czst"];
   const vowels = "aeiou";
-  
+
   for (const supply of supplyList) {
     let hasVowel = false;
 
@@ -55,7 +55,7 @@ const shelterSupplyList = () => {
     for (const letter of supply.toLowerCase()) {
       if (vowels.includes(letter)) {
         hasVowel = true;
-        break;  // Si encontramos una vocal sale del bucle
+        break; // Si encontramos una vocal sale del bucle
       }
     }
 
@@ -141,11 +141,11 @@ const generateALoginCode = () => {
     const randomCombination = Math.floor(
       Math.random() * alphabetandNumbers.length
     );
-    const randomCharacter = alphabetandNumbers.charAt(randomCombination)
-    randomCode = randomCode + randomCharacter
-}
-console.log(randomCode)
-}
+    const randomCharacter = alphabetandNumbers.charAt(randomCombination);
+    randomCode = randomCode + randomCharacter;
+  }
+  console.log(randomCode);
+};
 generateALoginCode();
 
 //1️⃣1️⃣ Macarena quiere crear un sistema que genere combinaciones de nombres y apellidos. Tiene dos arrays: ['Juan', 'Ana', 'Luis'] y ['Pérez', 'Martínez', 'García']. Debe generar todos los nombres posibles combinando uno de cada array.
@@ -232,18 +232,18 @@ const generateRandomCharacters = () => {
   const consonats = "BCDFGHJKLMNÑPQRSTVXZWY";
 
   const randomConsonats = Math.floor(Math.random() * consonats.length);
-    const randomVowels = Math.floor(Math.random() * vowels.length);
-    const randomNumbers = Math.floor(Math.random() * 99);
-    return randomConsonats + randomVowels + randomNumbers
-} //Se crea aparte una función con los 3 elementos random y luego se añade al bucle para que por cada vuelta lo guarde en el "Array Vacio" y se vaya guardando con el push
+  const randomVowels = Math.floor(Math.random() * vowels.length);
+  const randomNumbers = Math.floor(Math.random() * 99);
+  return randomConsonats + randomVowels + randomNumbers;
+}; //Se crea aparte una función con los 3 elementos random y luego se añade al bucle para que por cada vuelta lo guarde en el "Array Vacio" y se vaya guardando con el push
 
-  const randomUserNamesGenerator = () => { 
-    const usernamesList = [];
+const randomUserNamesGenerator = () => {
+  const usernamesList = [];
   for (let i = 0; i < 5; i++) {
     const users = generateRandomCharacters;
-    usernamesList.push(users)
+    usernamesList.push(users);
   }
-  console.log(usernamesList)
+  console.log(usernamesList);
 };
 randomUserNamesGenerator();
 
@@ -285,8 +285,6 @@ const multiplicationTable = number => {
 };
 multiplicationTable(4);
 
-
-
 //Ejercicios extra//
 
 //1 - Bego necesita un generador de contraseñas. Debe crear 3 contraseñas únicas usando letras mayúsculas, minúsculas, números y símbolos. Cada contraseña debe tener 8 caracteres, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
@@ -296,24 +294,26 @@ const passwordgenerator = () => {
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
   const passwords = [];
 
-  for (let i = 0; i <= 2; i++) { //cuantas veces esta dando la vuelta el codigo
+  for (let i = 0; i <= 2; i++) {
+    //cuantas veces esta dando la vuelta el codigo
     let uniquePassword = "";
 
-    for (let j = 0; j <= 7; j++){ // aca el 7 esta sirviendo como el largo de la contraseña
-      const randomOrder = code.charAt(Math.floor(Math.random() * code.length));//el code charAt es para que lea mejor el el random y no solo saque los números
-      uniquePassword +=randomOrder;
+    for (let j = 0; j <= 7; j++) {
+      // aca el 7 esta sirviendo como el largo de la contraseña
+      const randomOrder = code.charAt(Math.floor(Math.random() * code.length)); //el code charAt es para que lea mejor el el random y no solo saque los números
+      uniquePassword += randomOrder;
     }
-    passwords.push(uniquePassword)
+    passwords.push(uniquePassword);
   }
-    console.log(passwords);
-  }
+  console.log(passwords);
+};
 passwordgenerator();
 
 //2 - Macarena quiere hacer un filtro de palabras. Tiene un array con palabras mezcladas y quiere devolver un nuevo array solo con las que empiezan con vocal.
 //Ejemplo entrada: ['Agua', 'Pan', 'Elefante', 'Mesa', 'Oruga']
 //Ejemplo salida: ['Agua', 'Elefante', 'Oruga']
-const wordsFilter = (words) => {
-  const vowels = "AEIOU"
+const wordsFilter = words => {
+  const vowels = "AEIOU";
   const beginWithVowels = [];
 
   for (const word of words) {
@@ -322,162 +322,175 @@ const wordsFilter = (words) => {
     }
   }
   console.log(beginWithVowels);
-  }
-  wordsFilter(["Agua", "Pan", "Elefante", "Mesa", "Oruga"])
+};
+wordsFilter(["Agua", "Pan", "Elefante", "Mesa", "Oruga"]);
 
- //3 - Bego está calculando la media aritmética de un array de números. Debe mostrar el promedio y el total de elementos en el array.
+//3 - Bego está calculando la media aritmética de un array de números. Debe mostrar el promedio y el total de elementos en el array.
 //Ejemplo entrada: [5, 10, 15, 20]
 //Ejemplo salida: Promedio: 12.5 - Total de elementos: 4
 //Sumar todos los números en el conjunto de datos y luego al dividir entre el número de valores en el conjunto. Ejemplo:  5 + 10 + 15 + 20 / 4 = 12,5
-const arithmetiCalculator = (numbers) =>{
-let average = 0;
-const numbersOfValues = numbers.length;
+const arithmetiCalculator = numbers => {
+  let average = 0;
+  const numbersOfValues = numbers.length;
 
-for(const number of numbers){
- average = average + number;
-}
-  const total = average /numbersOfValues;
+  for (const number of numbers) {
+    average += number; //el += llega a significar: yo mismo más
+  }
+  const total = average / numbersOfValues;
 
-console.log(`entrada: ${numbers} Promedio: ${total} Total de elementos ${numbersOfValues}`)
-}
-arithmetiCalculator([5, 10, 15, 20])
+  console.log(
+    `entrada: ${numbers} Promedio: ${total} Total de elementos ${numbersOfValues}`
+  );
+};
+arithmetiCalculator([5, 10, 15, 20]);
 
 //4 - Camila quiere invertir un array sin usar el método .reverse(). El array debe mostrarse al revés y ser un nuevo array diferente al original.
 //Ejemplo entrada: [1, 2, 3, 4]
 //Ejemplo salida: [4, 3, 2, 1]
-const invertNumbersWithoutReverse = () =>{
-  console.log('Ascendente:');
+const invertNumbersWithoutReverse = () => {
+  console.log("Ascendente:");
   for (let i = 0; i <= 4; i++) {
-    console.log([i])};
-
-  console.log('Invertido')
-  for (let i = 4; i >= 0; i--) {
-      console.log([i]);}
+    console.log([i]);
   }
-  invertNumbersWithoutReverse([1, 2, 3, 4]) 
+
+  console.log("Invertido");
+  for (let i = 4; i >= 0; i--) {
+    console.log([i]);
+  }
+};
+invertNumbersWithoutReverse([1, 2, 3, 4]);
 
 //5 - Bego está organizando números. Tiene un array de números positivos y negativos y quiere separarlos en dos arrays: uno con positivos y otro con negativos.
 //Ejemplo entrada: [3, -2, -7, 4, 0, -1, 5]
 //Ejemplo salida: Positivos: [3, 4, 0, 5] - Negativos: [-2, -7, -1]
-const  organizingPositiveAndNegativeNumbers = (numbers) =>{
-  const positiveNumbers =[];
-  const negativeNumbers =[];
+const organizingPositiveAndNegativeNumbers = numbers => {
+  const positiveNumbers = [];
+  const negativeNumbers = [];
 
-  for(number of numbers){
-    if(number >= 0) 
-      {
-      positiveNumbers.push(number)
-    } else 
-      {
-        negativeNumbers.push(number)
-      }
+  for (number of numbers) {
+    if (number >= 0) {
+      positiveNumbers.push(number);
+    } else {
+      negativeNumbers.push(number);
+    }
   }
   console.log(`Números positivos ${positiveNumbers} 
-   Números negativos ${negativeNumbers}`)
-}
-organizingPositiveAndNegativeNumbers([3, -2, -7, 4, 0, -1, 5])
+   Números negativos ${negativeNumbers}`);
+};
+organizingPositiveAndNegativeNumbers([3, -2, -7, 4, 0, -1, 5]);
 
 //6 - Macarena necesita una función que genere un array con números del 1 al 100 que sean divisibles por 5 pero no por 3.
 //Ejemplo salida: [5, 10, 20, 25, 35, 40, 50, 55, 65, 70, 80, 85, 95, 100]
-const numberOrganizerDivisibleBy5ButNotBy3 = () =>{
+const numberOrganizerDivisibleBy5ButNotBy3 = () => {
   numbersDivisible5 = [];
 
   for (let i = 0; i < 10; i++) {
-   const numbersGenerator = Math.floor(Math.random()*100)+1;
+    const numbersGenerator = Math.floor(Math.random() * 100) + 1;
 
-  if(numbersGenerator % 5 ===0 && numbersGenerator % 3 !== 0)
-  {
-    numbersDivisible5.push(numbersGenerator)
+    if (numbersGenerator % 5 === 0 && numbersGenerator % 3 !== 0) {
+      numbersDivisible5.push(numbersGenerator);
+    }
   }
-}
-  console.log(numbersDivisible5)
-}
-numberOrganizerDivisibleBy5ButNotBy3()
+  console.log(numbersDivisible5);
+};
+numberOrganizerDivisibleBy5ButNotBy3();
 
 //7 - Abby quiere transformar un array de strings en un único string separado por comas, pero ignorando las palabras que empiezan con vocal.
 //Ejemplo entrada: ['Agua', 'Pan', 'Elefante', 'Mesa', 'Oruga']
 //Ejemplo salida: 'Pan, Mesa'
-const arraysDividedByCommas = (words) =>{
-  const vowels = 'AEIOU';
-  const startWithoutVowels = [];
+const arraysDividedByCommas = words => {
+  const vowels = "AEIOU";
+  const startWithoutVowels = []; // puede ser tambien un string vacio
 
-  for (const word of words){
-    if(!vowels.includes(word.charAt(0).toUpperCase())){
-      startWithoutVowels.push(word)
+  for (const word of words) {
+    if (!vowels.includes(word.charAt(0).toUpperCase())) {
+      startWithoutVowels.push(word); // y como consecuencia esto seria startWith... += word + ', ' si va despues de la palabra se coloca entre ellas
     }
   }
-  console.log(startWithoutVowels.join(', '))
-}
-arraysDividedByCommas(['Agua', 'Pan', 'Elefante', 'Mesa', 'Oruga'])
+  console.log(startWithoutVowels.join(", "));
+};
+arraysDividedByCommas(["Agua", "Pan", "Elefante", "Mesa", "Oruga"]);
 
 //8 - Bego tiene un array con números y debe devolver un nuevo array con solo los números impares multiplicados por 2.
 //Ejemplo entrada: [3, 6, 9, 12, 15]
 //Ejemplo salida: [6, 18, 30]
-const OddMumbersMultipliedBy2 = (numbers) =>{
-  const generateNumbers =[];
+const OddMumbersMultipliedBy2 = numbers => {
+  const generateNumbers = [];
   const oddNumbersmultiplied = [];
 
   for (let i = 0; i < 5; i++) {
-    const randomNumbers = Math.floor(Math.random() * 100) +1;
-    generateNumbers.push(randomNumbers)
+    const randomNumbers = Math.floor(Math.random() * 100) + 1;
+    generateNumbers.push(randomNumbers);
   }
-  
-  for(const number of generateNumbers){
-  if(number % 2 !== 0){oddNumbersmultiplied.push(number * 2)}
-}
-console.log('Numeros generados:' + generateNumbers +'||' + 'Números impares, multiplicados por 2: '+ oddNumbersmultiplied)
-}
-OddMumbersMultipliedBy2()
+
+  for (const number of generateNumbers) {
+    if (number % 2 !== 0) {
+      oddNumbersmultiplied.push(number * 2);
+    }
+  }
+  console.log(
+    "Numeros generados:" +
+      generateNumbers +
+      "||" +
+      "Números impares, multiplicados por 2: " +
+      oddNumbersmultiplied
+  );
+};
+OddMumbersMultipliedBy2();
 
 //9 - Sabrina quiere crear un sistema para clasificar números. Recibe un array y debe mostrar cuántos son pares, cuántos son impares y cuántos son cero.
 //Ejemplo entrada: [0, 3, 6, 9, 12, 0]
 //Ejemplo salida: Pares: 2 - Impares: 3 - Ceros: 2
-const clasifyEvenAndOddNumber = (numbers) =>{
-  const evenNumbers = [];
-  const oddNumbers = [];
-  const zeros = [];
+const clasifyEvenAndOddNumber = numbers => {
+  let evenNumbers = 0;
+  let oddNumbers = 0;
+  let zeros = 0;
 
-  for(number of numbers){
-    if(number === 0){
-      zeros.push(number)
-    }
-    else if(number % 2 !== 0){
-      oddNumbers.push(number)
-    }
-    else{evenNumbers.push(number)
+  for (const number of numbers) {
+    if (number === 0) {
+      zeros++;
+    } else if (number % 2 !== 0) {
+      oddNumbers++;
+    } else {
+      evenNumbers++;
     }
   }
-console.log('pares: ' + evenNumbers.length + '  Impares: ' + oddNumbers.length + '  ceros: ' + zeros.length)
- }
-clasifyEvenAndOddNumber([0, 3, 6, 9, 12, 0])
+  console.log(
+    "pares: " + evenNumbers + "  Impares: " + oddNumbers + "  ceros: " + zeros
+  );
+};
+clasifyEvenAndOddNumber([0, 3, 6, 9, 12, 0]);
 
 //10 - Camila quiere un sistema que reciba un array de nombres y devuelva un array nuevo con las posiciones donde aparecen nombres con más de 5 letras.
 //Ejemplo entrada: ['Pedro', 'Ana', 'Esteban', 'María', 'Begoña']
 //Ejemplo salida: [2, 4]
-const nameLength5Position = (names) => {
- const namesPositions=[];
+const nameLength5Position = names => {
+  const namesPositions = [];
 
- for (let i = 0; i < names.length; i++) {
-  if (names[i].length > 5) 
-    { 
-    namesPositions.push(i);   ///Si lo hago con un 'for of' y luego coloco indexOf en push(name) me dice -1
+  for (let i = 0; i < names.length; i++) {
+    if (names[i].length > 5) {
+      namesPositions.push(i); ///Si lo hago con un 'for of' y luego coloco indexOf en push(name) me dice -1
+    }
   }
-}
-console.log(namesPositions)
-}
-nameLength5Position(['Pedro', 'Ana', 'Esteban', 'María', 'Begoña'])
+  console.log(namesPositions);
+};
+nameLength5Position(["Pedro", "Ana", "Esteban", "María", "Begoña"]);
 
 //11 - Macarena quiere generar un código de seguridad que se crea uniendo la primera letra de cada palabra en un array de frases.
 //Ejemplo entrada: ['Fuego en el bosque', 'Refugio seguro', 'Suministros esenciales']
 //Ejemplo salida: 'FRS'
-const securityCodeWithFirstLetter = (letters) => {
-const firstLetter =[];
-for(const letter of letters){
-  firstLetter.push(letter.charAt(0).toUpperCase())
-}
-console.log(firstLetter.join(""))
-}
-securityCodeWithFirstLetter(['Fuego en el bosque', 'Refugio seguro', 'Suministros esenciales'])
+const securityCodeWithFirstLetter = letters => {
+  const firstLetter = []; // cambiar a ``
+  for (const letter of letters) {
+    firstLetter.push(letter.charAt(0).toUpperCase()); //tambien tengo que arreglar esto
+  }
+  console.log(firstLetter.join(""));
+};
+securityCodeWithFirstLetter([
+  "Fuego en el bosque",
+  "Refugio seguro",
+  "Suministros esenciales",
+]);
 
 //12 - Bego quiere hacer un sistema que reciba dos arrays de números y devuelva un array con los números que aparecen en ambos arrays.
 //Ejemplo entrada: [1, 2, 3, 4] y [3, 4, 5, 6]
@@ -487,18 +500,16 @@ const similarNumberSystem = () => {
   const firstArray = [1, 2, 3, 4];
   const secondArray = [3, 4, 5, 6];
   const numbersRepeatedInArray = [];
-  
-  for(let i = 0; i <firstArray.length; i++)
-    {
-    if(secondArray.includes(firstArray[i]))
-      {
-      numbersRepeatedInArray.push(firstArray[i])
+
+  for (let i = 0; i < firstArray.length; i++) {
+    if (secondArray.includes(firstArray[i])) {
+      numbersRepeatedInArray.push(firstArray[i]);
     }
   }
   console.log(`Primer Array ${firstArray}   Segundo Array ${secondArray} 
-    Números que aparecen en ambos ${numbersRepeatedInArray}`)
-} 
-similarNumberSystem()
+    Números que aparecen en ambos ${numbersRepeatedInArray}`);
+};
+similarNumberSystem();
 
 //13 - Camila necesita generar un array que contenga todos los números entre dos números dados, inclusive.
 //Ejemplo entrada: 5 y 10
@@ -507,43 +518,46 @@ similarNumberSystem()
 //Si tienes dos números enteros 'a' y 'b', con 'a' menor que 'b', los números enteros entre ellos son todos los que están entre 'a' y 'b', sin incluir a 'a' ni a 'b'. Ejemplo:
 //Si los números son 5 y 10, los números enteros entre ellos son 6, 7, 8 y 9
 const generateNumbersBetween = (a, b) => {
-const numbersBetween =[];
+  const numbersBetween = [];
 
-for (let i = a + 1; i < b; i++) {
-  numbersBetween.push(i);
-}
-console.log(numbersBetween)
-}
-generateNumbersBetween(5, 10)
+  for (let i = a + 1; i < b; i++) {
+    numbersBetween.push(i);
+  }
+  console.log(numbersBetween);
+};
+generateNumbersBetween(5, 10);
 
 //14 - Macarena quiere un programa que devuelva el número total de vocales en cada palabra de un array.
 //Ejemplo entrada: ['Hola', 'Mundo', 'JavaScript']
 //Ejemplo salida: [2, 2, 3]
-const totalVowelsInWord = (words) =>{
-const wordsLength = [];
-const vowels = 'aeiou';
+const totalVowelsInWord = words => {
+  const wordsLength = [];
+  const vowels = "aeiou";
 
-for(const word of words){
-  let vowelsCounter = 0;
-if(vowels.includes(word)){vowelsCounter++;
-  wordsLength.push(vowelsCounter)
-}
-}
-console.log(wordsLength)
-}
+  for (const word of words) {
+    let vowelsCounter = 0;
 
-totalVowelsInWord(['Hola', 'Mundo', 'JavaScript']) //esta malo, en console solo muestra un array vacio
+    for (const letter of word)
+      if (vowels.includes(letter)) {
+        vowelsCounter++;
+      }
+    wordsLength.push(vowelsCounter);
+  }
+  console.log(wordsLength);
+};
+
+totalVowelsInWord(["Hola", "Mundo", "JavaScript"]); //esta malo, en console solo muestra un array vacio
 
 //15 - Bego quiere que cada string en un array se muestre al revés.
 //Ejemplo entrada: ['Hola', 'Mundo']
 //Ejemplo salida: ['aloH', 'odnuM']
-const inverseString = (words) => {
- const reversetext = [];
+const inverseString = words => {
+  const reversetext = [];
 
-  for(const word of words){
-  reversewords = word.split("").reverse().join("");
-    reversetext.push(reversewords)
+  for (const word of words) {
+    const reversewords = word.split("").reverse().join("");
+    reversetext.push(reversewords);
   }
-  console.log(reversetext)
-}
-inverseString(['Hola', 'Mundo'])
+  console.log(reversetext);
+};
+inverseString(["Hola", "Mundo"]);
