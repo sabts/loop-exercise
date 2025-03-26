@@ -507,12 +507,12 @@ similarNumberSystem()
 //Si tienes dos números enteros 'a' y 'b', con 'a' menor que 'b', los números enteros entre ellos son todos los que están entre 'a' y 'b', sin incluir a 'a' ni a 'b'. Ejemplo:
 //Si los números son 5 y 10, los números enteros entre ellos son 6, 7, 8 y 9
 const generateNumbersBetween = (a, b) => {
-const numberBetween =[];
+const numbersBetween =[];
 
 for (let i = a + 1; i < b; i++) {
-  numberBetween.push(i);
+  numbersBetween.push(i);
 }
-console.log(generateNumbersBetween)
+console.log(numbersBetween)
 }
 generateNumbersBetween(5, 10)
 
