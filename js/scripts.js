@@ -454,40 +454,96 @@ clasifyEvenAndOddNumber([0, 3, 6, 9, 12, 0])
 //10 - Camila quiere un sistema que reciba un array de nombres y devuelva un array nuevo con las posiciones donde aparecen nombres con más de 5 letras.
 //Ejemplo entrada: ['Pedro', 'Ana', 'Esteban', 'María', 'Begoña']
 //Ejemplo salida: [2, 4]
-const nameLength5Position = () => {
+const nameLength5Position = (names) => {
+ const namesPositions=[];
 
+ for (let i = 0; i < names.length; i++) {
+  if (names[i].length > 5) 
+    { 
+    namesPositions.push(i);   ///Si lo hago con un 'for of' y luego coloco indexOf en push(name) me dice -1
+  }
+}
+console.log(namesPositions)
 }
 nameLength5Position(['Pedro', 'Ana', 'Esteban', 'María', 'Begoña'])
 
 //11 - Macarena quiere generar un código de seguridad que se crea uniendo la primera letra de cada palabra en un array de frases.
 //Ejemplo entrada: ['Fuego en el bosque', 'Refugio seguro', 'Suministros esenciales']
 //Ejemplo salida: 'FRS'
-
+const securityCodeWithFirstLetter = (letters) => {
+const firstLetter =[];
+for(const letter of letters){
+  firstLetter.push(letter.charAt(0).toUpperCase())
+}
+console.log(firstLetter.join(""))
+}
+securityCodeWithFirstLetter(['Fuego en el bosque', 'Refugio seguro', 'Suministros esenciales'])
 
 //12 - Bego quiere hacer un sistema que reciba dos arrays de números y devuelva un array con los números que aparecen en ambos arrays.
 //Ejemplo entrada: [1, 2, 3, 4] y [3, 4, 5, 6]
 //Ejemplo salida: [3, 4]
-
+//if(empty1 === empty2){push}
+const similarNumberSystem = () => {
+  const firstArray = [1, 2, 3, 4];
+  const secondArray = [3, 4, 5, 6];
+  const numbersRepeatedInArray = [];
+  
+  for(let i = 0; i <firstArray.length; i++)
+    {
+    if(secondArray.includes(firstArray[i]))
+      {
+      numbersRepeatedInArray.push(firstArray[i])
+    }
+  }
+  console.log(`Primer Array ${firstArray}   Segundo Array ${secondArray} 
+    Números que aparecen en ambos ${numbersRepeatedInArray}`)
+} 
+similarNumberSystem()
 
 //13 - Camila necesita generar un array que contenga todos los números entre dos números dados, inclusive.
 //Ejemplo entrada: 5 y 10
 //Ejemplo salida: [5, 6, 7, 8, 9, 10]
+//Identifica el rango:
+//Si tienes dos números enteros 'a' y 'b', con 'a' menor que 'b', los números enteros entre ellos son todos los que están entre 'a' y 'b', sin incluir a 'a' ni a 'b'. Ejemplo:
+//Si los números son 5 y 10, los números enteros entre ellos son 6, 7, 8 y 9
+const generateNumbersBetween = (a, b) => {
+const numberBetween =[];
 
+for (let i = a + 1; i < b; i++) {
+  numberBetween.push(i);
+}
+console.log(generateNumbersBetween)
+}
+generateNumbersBetween(5, 10)
 
 //14 - Macarena quiere un programa que devuelva el número total de vocales en cada palabra de un array.
 //Ejemplo entrada: ['Hola', 'Mundo', 'JavaScript']
 //Ejemplo salida: [2, 2, 3]
+const totalVowelsInWord = (words) =>{
+const wordsLength = [];
+const vowels = 'aeiou';
+
+for(const word of words){
+  let vowelsCounter = 0;
+if(vowels.includes(word)){vowelsCounter++;
+  wordsLength.push(vowelsCounter)
+}
+}
+console.log(wordsLength)
+}
+
+totalVowelsInWord(['Hola', 'Mundo', 'JavaScript']) //esta malo, en console solo muestra un array vacio
 
 //15 - Bego quiere que cada string en un array se muestre al revés.
 //Ejemplo entrada: ['Hola', 'Mundo']
 //Ejemplo salida: ['aloH', 'odnuM']
-const inversestring = (words) =>{
-  const reversetext = [];
+const inverseString = (words) => {
+ const reversetext = [];
 
-  for(word of words){
+  for(const word of words){
   reversewords = word.split("").reverse().join("");
     reversetext.push(reversewords)
   }
   console.log(reversetext)
 }
-inversestring(['Hola', 'Mundo'])
+inverseString(['Hola', 'Mundo'])
